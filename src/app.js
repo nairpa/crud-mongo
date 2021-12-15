@@ -1,6 +1,7 @@
 const express = require('express');
-const app = express();
+const cors = require('cors');
 const mongoose = require('mongoose');
+const app = express();
 
 // connection to db
 mongoose.connect('mongodb://localhost/crud-mongo')
@@ -14,6 +15,7 @@ const routes = require('./routes/index');
 app.set('port', process.env.PORT || 3000);
 
 // middlewares
+app.use(cors({origin: '*'}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 

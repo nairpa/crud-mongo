@@ -4,7 +4,7 @@ const deleteOne = async(req, res) => {
     const { id } = req.params
 
     try {
-        const task = await TaskModel.remove({_id: id})
+        const task = await TaskModel.deleteOne({_id: id})
         return res.send({
             message: `Tarea con id: ${id} eliminada correctamente`,
             task: task
